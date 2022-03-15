@@ -7,20 +7,20 @@ FLAGS = -Wall -Werror -Wextra
 SRC = client.c server.c
 OBJ = ${SRC:.c=.o}
 
-all : $(SERVER) $(CLIENT)
+all: $(SERVER) $(CLIENT)
 
-$(SERVER) :
+$(SERVER):
 		${CC} server.c -c
 		${CC} ${FLAGS} -o server server.c
 
-$(CLIENT) :
+$(CLIENT):
 		${CC} client.c -c
 		${CC} -o client client.c
 
-clean :
+clean:
 		${RM} ${SERVER} $(CLIENT)
 
-fclean : clean
+fclean: clean
 		${RM} ${OBJ}
 
-re : fclean all
+re: fclean all
